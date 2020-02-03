@@ -39,11 +39,55 @@ function Question(text, choices, answer) {
   this.choices = choices;
   this.answer = answer;
 }
-//     on answer selection:
-//     check to see if answer is correct
+
+function Quiz(questions) {
+  this.score = 0;
+  this.questions = questions;
+  this.questionIndex = 0;
+}
+
+Quiz.prototype.getQuestionIndex = function() {
+  return this.questions[this.questionIndex];
+}
+
 //     if correct:
+//     check to see if answer is correct
+Quiz.prototype.guess = function(answer) {
+  if(this.getQuestionIndex().isCorrectAnswer(answer)) {
+    //     add to score
+      this.score++;
+  }
+
+  this.questionIndex++;
+}
+
+Quiz.prototype.isEnded = function() {
+  return this.questionIndex === this.questions.length;
+}
+
+
+function Question(text, choices, answer) {
+  this.text = text;
+  this.choices = choices;
+  this.answer = answer;
+}
+
+// create questions here
+var questions = [
+  new Question("Hyper Text Markup Language Stand For?", ["JavaScript", "XHTML","CSS", "HTML"], "HTML"),
+  new Question("Which language is used for styling web pages?", ["HTML", "JQuery", "CSS", "XML"], "CSS"),
+  new Question("Which is not a JavaScript Framework?", ["Python Script", "JQuery","Django", "NodeJS"], "Django"),
+  new Question("Which is used for Connect To Database?", ["PHP", "HTML", "JS", "All"], "PHP"),
+  new Question("Webdevtrick.com is about..", ["Web Design", "Graphic Design", "SEO & Development", "All"], "All")
+];
+
+// create quiz
+var quiz = new Quiz(questions);
+
+// display quiz
+populate();
+//     on answer selection:
 //     display success message
-//     add to score
 //     show next question
 //     if incorrect:
 //     display fail message
