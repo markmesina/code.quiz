@@ -6,9 +6,9 @@ var welcome = alert('Welcome to Code Quiz! Answer select questions and compare s
 var howToPlay = alert ('Select correct answer and hit next question button');
 var beware = alert ('Beware! If you make a mistake, you lose 5 seconds!');
 var haveFun = alert ('HAVE FUN!');
-const $startQuiz = document.querySelector('.start-quiz');
-const $showQuest = document.querySelector('.show-question');
-const $timer = document.querySelector('.timer');
+const $startQuiz = document.getElementsByClassName('.start-quiz');
+const $showQuest = document.getElementsByClassName('.show-question');
+const $timer = document.getElementsByClassName('.timer');
 var timeLeft = 60;
 
 function setTime(){
@@ -43,10 +43,9 @@ $startQuiz.addEventListener('click', function(){
       choices: ["true", "false", "maybe", "depends"],
       answer: "true"
     }];
-    questions.forEach(element => { 
+    
       
     });
-});
 
 
 //     hide game-start div 
@@ -82,3 +81,4 @@ $startQuiz.addEventListener('click', function(){
 //     clearScores()
 //     toggleScores()
 //     */
+
