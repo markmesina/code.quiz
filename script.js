@@ -3,12 +3,19 @@
 // show game start screen
 // include how to play instructions
 
-var welcome = alert('Welcome to Code Quiz! Answer select questions and compare scores with fellow Developers!');
-var howToPlay = alert ('Select correct answer and hit next question button');
-var beware = alert ('Beware! If you make a mistake, you lose 5 seconds!');
-var haveFun = alert ('HAVE FUN!');
+const welcome = alert('Welcome to Code Quiz! Answer select questions and compare scores with fellow Developers!');
+const howToPlay = alert ('Select correct answer and hit next question button');
+const beware = alert ('Beware! If you make a mistake, you lose 5 seconds!');
+const haveFun = alert ('HAVE FUN!');
+const startQuizBtn = document.querySelector("#startQuiz");
 const $timer = document.querySelector('.timer');
-var timeLeft = 60;
+let timeLeft = 60;
+
+startQuizBtn.addEventListener("click", quizStart);
+function quizStart() {
+  setTime();
+  populate();
+};
 
 function setTime(){
   let timeInterval = setInterval(function(){
@@ -21,8 +28,7 @@ function setTime(){
     }
   }, 1000);
 }
-//     start timer
-setTime();
+
 //     hide game-start div 
 //     show questions div
 //     show question
@@ -121,7 +127,7 @@ var questions = [
 var quiz = new Quiz(questions);
 
 // display quiz
-populate();
+// populate();
 //     on answer selection:
 //     display success message
 //     show next question
