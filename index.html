@@ -1,43 +1,69 @@
 <!DOCTYPE html>
-<html>
-<head lang="en">
+<html lang="en">
+<head>
     <meta charset="UTF-8">
-    <title>Quiz</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="style.css">
+    <title>Code Quiz</title>
 </head>
 <body>
-    
-    <div class="grid">
-        <div id="startQuiz" class="center" onClick="this.style.visibility='hidden'">
-            <button id="startBtn">Start Quiz</button>
+    <header>
+        <button id="viewScores" class="btn btn-info">View Highscores</button>
+        <div class="time">
+            <span>Time: </span>    
+            <span id="time__num">0</span>
+            <span>seconds</span>
         </div>
-        <nav class="navbar navbar-light bg-light">
-            <span class="navbar-brand" class="highscore">High Scores</span>
-            <div class="timer">Timer</div>
-        </nav>
-    
-        <div id="quiz">
-            <h1>Code Quiz</h1>
-            <hr style="margin-bottom: 20px">
- 
-            <p id="question"></p>
- 
-            <div class="buttons">
-                <button id="btn0"><span id="choice0"></span></button>
-                <button id="btn1"><span id="choice1"></span></button>
-                <button id="btn2"><span id="choice2"></span></button>
-                <button id="btn3"><span id="choice3"></span></button>
+    </header>
+
+    <main>
+        <section id="intro">
+            <div class="heading h1">Coding Quiz Challenge</div>
+            <div class="description">
+                Try to answer the following code-related questons within the time limit. 
+                <br>Keep in mind that incorrect answers will penalize your score time by fifteen seconds!
             </div>
- 
-            <hr style="margin-top: 50px">
-            <footer>
-                <p id="progress">Question x of y</p>
-            </footer>
+            <button id="startBtn" type="button" class= "btn btn-danger">Start Quiz</button>
+        </section>
+        <section id="quiz">
+            <div class="quiz__title"></div>
+            <div class="quiz__choices"></div>
+            <div class="quiz__verdit"></div>
+        </section >
+        <section id="result">
+            <div class="heading h2">All done!</div>
+            <p class="result__comment">Your final score is 
+                <span class="result__score">0</span>
+            </p>
+            <label for="initials">Enter initials: </label>
+            <input type="text" id="initials" value="">
+            <button id="submitBtn" class="btn btn-dark" type="submit">Submit</button>
+        </section>
+        <section id="scores">
+            <div class="heading h2">Highscores</div>
+            <div id="scores__ranking"></div>
+            <div class="scores__btn">
+                <button id="gobackBtn" class="btn btn-primary" type="button">Go Back</button>
+                <button id="clearBtn" class="btn btn-warning" type="button">Clear Highscores</button>
+            </div>
+        </section>
+        <div id="verdict">
+            <hr>
+            <span id="verdict__word">right</span>
         </div>
-    </div>
- 
- 
-<script src="script.js"></script>
- 
+    </main>
+
+    <!-- jquery for bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    
+    <script src="questions.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
